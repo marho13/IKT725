@@ -68,19 +68,36 @@ def createNodes(restrictions):
 
 nodeList = createNodes(restrictions)
 
-def montecarlo(numTries, depth, R, listNodes):
-    startNode = listNodes
+def search(depth, R, listNodes):
     for x in range(len(R)):
         if x == 5 or x == 11:
             print("Winner")
         else:
-            print(x)
-            for x in range(numTries):
-                currNode = startNode
-                for y in range(depth):
-                    deptNode = currNode
-                    for actions in range(4):
-                        print(x, y, actions)
+            sum = []
+            currNode = listNodes[x]
+            neighbours = currNode.neighbour
+            for n in neighbours:
+                if type(n) != type(None):
+                    sum.append(0)
+                    neighbourList = n.neighbour
+                    for d in range(depth):
+                        neighbourList = breadthFirst(neighbourList)
+                        for output in neighbourList:
+                            if type(output) == int:
+                                # print(output)
+                                if output == 1:
+                                    sum[-1] += 5
+                                else:
+                                    sum[-1] += -1
+                            else:
+                                sum[-1] += -1
+
+                else:
+                    sum.append(-99999999999)
+            print(sum)
+            print()
+
+
 
 
     #Start at a random position not including 5 or 11
@@ -88,6 +105,33 @@ def montecarlo(numTries, depth, R, listNodes):
     #if it reaches node 11 or performs depth number of actions, add -1 to the R matrix
     #If it reaches node 5, add +1 to the R matrix
 
+
+def breadthFirst(listOfInputs):
+    outputList = []
+    for a in range(len(listOfInputs)):
+        if type(listOfInputs[a]) == type(node):
+            neighbours = listOfInputs[a].neighbour
+            for n in neighbours:
+                if n == None:
+                    outputList.append(listOfInputs[a])
+
+                elif n.num == 5:
+                    outputList.append(1)
+
+                elif n.num == 11:
+                    outputList.append(-1)
+
+                else:
+                    outputList.append(n)
+
+        else:
+            if listOfInputs[a] == 1:
+                outputList.append(1)
+            else:
+                outputList.append(-1)
+    return outputList
+
 R = np.zeros([len(nodeList), 4])
 print(R.shape)
-montecarlo(1000, 10, R, nodeList)
+search(10, R, nodeList)
+#the reward can be -1, 0 or 1 and should return
