@@ -1,4 +1,5 @@
 import numpy as np
+import random
 left = 0
 right = 1
 up = 2
@@ -68,42 +69,58 @@ def createNodes(restrictions):
 
 nodeList = createNodes(restrictions)
 
-def search(depth, R, listNodes):
+def loopingSumandR(sum, R, numInR):
+    first, second = -99999, -99999
+    fInd, sInd = 0, 0
+    for f in range(len(sum)):
+        if sum[f] > first:
+            first = sum[f]
+            fInd = f
+    for s in range(len(sum)):
+        if s != fInd:
+            if sum[s] > second:
+                second = sum[s]
+                sInd = s
+
+    for x in range(len(sum)):
+        if x != fInd or x != sInd:
+            R[numInR][x] = -1
+        R[numInR][fInd] = 1
+        R[numInR][sInd] = 0
+    return R
+
+def search(numTries ,depth, R, listNodes):
     for x in range(len(R)):
-        if x == 5 or x == 11:
-            print("Winner")
+        if x == 5:
+            R[x][0] = 1
+            R[x][1] = 1
+            R[x][2] = 1
+            R[x][3] = 1
+        if x == 11:
+            R[x][0] = -1
+            R[x][1] = -1
+            R[x][2] = -1
+            R[x][3] = -1
+
         else:
             sum = []
             currNode = listNodes[x]
             neighbours = currNode.neighbour
             for n in neighbours:
-                if type(n) != type(None):
-                    sum.append(0)
-                    neighbourList = n.neighbour
-                    for d in range(depth):
-                        neighbourList = breadthFirst(neighbourList)
-                        for output in neighbourList:
-                            if type(output) == int:
-                                # print(output)
-                                if output == 1:
-                                    sum[-1] += 5
-                                else:
-                                    sum[-1] += -1
-                            else:
-                                sum[-1] += -1
+                sum.append(0)
+                for _ in range(numTries):
+                    if type(n) != type(None):
+                        output = monteCarlo(depth, 1, n)
+                    else:
+                        output = monteCarlo(depth, 1, currNode)
+                    sum[-1] += output
 
-                else:
-                    sum.append(-99999999999)
             print(sum)
             print()
+            R = loopingSumandR(sum, R, x)
 
+    print(R)
 
-
-
-    #Start at a random position not including 5 or 11
-    #go a maximum of depth steps
-    #if it reaches node 11 or performs depth number of actions, add -1 to the R matrix
-    #If it reaches node 5, add +1 to the R matrix
 
 
 def breadthFirst(listOfInputs):
@@ -131,7 +148,28 @@ def breadthFirst(listOfInputs):
                 outputList.append(-1)
     return outputList
 
+def monteCarlo(maxDepth, depth, node):
+    currNode = node
+    if node == nodeList[5]:
+        return 1
+    elif node == nodeList[11]:
+        return -1
+    for i in range(depth, maxDepth):
+        neighbours = currNode.neighbour
+        randNum = random.randint(0, len(neighbours)-1)
+        nextNode = neighbours[randNum]
+        if nextNode == nodeList[5]:
+            return 1
+        elif nextNode == nodeList[11]:
+            return -1
+
+        if type(nextNode) != type(None):
+            currNode = nextNode
+
+    return 0
+
+
+
 R = np.zeros([len(nodeList), 4])
 print(R.shape)
-search(10, R, nodeList)
-#the reward can be -1, 0 or 1 and should return
+search(10000, 10, R, nodeList) #Task done
