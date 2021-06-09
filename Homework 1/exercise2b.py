@@ -90,6 +90,8 @@ class policyIteration:
                 nextState = self.city
             futureEstimate = self.gamma * self.getValueForState(nextState)
             sumy[action] = self.R[self.city][action] + futureEstimate
+
+
         self.valueEstimate[self.city] = sumy
 
     def getValueForState(self, state):

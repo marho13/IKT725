@@ -1,5 +1,4 @@
 ### MDP Value Iteration and Policy Iteration
-
 import numpy as np
 import gym
 import time
@@ -32,7 +31,7 @@ the parameters P, nS, nA, gamma are defined as follows:
 		Discount factor. Number in range [0, 1)
 """
 
-def policy_evaluation(P, nS, nA, policy, gamma=0.9, tol=1e-3):
+def policy_evaluation(P, nS, nA, value, gamma=0.9, tol=1e-3):
 	"""Evaluate the value function from a given policy.
 
 	Parameters
@@ -51,16 +50,22 @@ def policy_evaluation(P, nS, nA, policy, gamma=0.9, tol=1e-3):
 		the value of state s
 	"""
 
-	value_function = np.zeros(nS)
+	# -1 is reward -2 is nextstate, 0 or -3 is probability
+	while True:
+		newValueFunction = np.copy(value)
+		for s in range((nS)):
+			for a in range((nA)):
+				prob, nextState, r, terminal = P[s][a][0]
+				newValueFunction[s] = r + gamma * prob * value[nextState]
+		valueChange = np.sum(np.abs(value - newValueFunction))
+		value = newValueFunction
+		if valueChange < tol:
+			break
 
-	############################
-	# YOUR IMPLEMENTATION HERE #
-
-	############################
-	return value_function
+	return value
 
 
-def policy_improvement(P, nS, nA, value_from_policy, policy, gamma=0.9):
+def policy_improvement(P, nS, nA, valuefromPolicy, policy, gamma=0.9):
 	"""Given the value function from policy improve the policy.
 
 	Parameters
@@ -80,14 +85,20 @@ def policy_improvement(P, nS, nA, value_from_policy, policy, gamma=0.9):
 		given value function.
 	"""
 
-	new_policy = np.zeros(nS, dtype='int')
+	# new_policy = np.zeros(nS, dtype='int')
+	newPolicy = np.copy(policy)  # Important
 
 	############################
 	# YOUR IMPLEMENTATION HERE #
-
-
+	for s in range(nS):
+		actionReward = []
+		for a in range(nA):
+			prob, nextState, r, terminal = P[s][a][0]
+			actionReward.append(r + gamma * prob * valuefromPolicy[nextState])
+		newPolicy[s] = np.argmax(actionReward)
 	############################
-	return new_policy
+
+	return newPolicy
 
 
 def policy_iteration(P, nS, nA, gamma=0.9, tol=10e-3):
@@ -107,15 +118,28 @@ def policy_iteration(P, nS, nA, gamma=0.9, tol=10e-3):
 	value_function: np.ndarray[nS]
 	policy: np.ndarray[nS]
 	"""
+	# global value_function, policy
 
-	value_function = np.zeros(nS)
+	value = np.zeros(nS)
 	policy = np.zeros(nS, dtype=int)
+	timestep = 0
 
 	############################
 	# YOUR IMPLEMENTATION HERE #
-
+	while True:
+		timestep += 1
+		# Policy evaluation
+		value = policy_evaluation(P, nS, nA, value, gamma, tol)
+		# Policy improvement
+		newPolicy = policy_improvement(P, nS, nA, value, policy, gamma)
+		policyChange = (newPolicy != policy).sum()
+		print('policy changed in %d states' % (policyChange))
+		policy = newPolicy
+		if policyChange == 0:
+			break
 	############################
-	return value_function, policy
+	print("It took {} timesteps".format(timestep))
+	return value, policy
 
 def value_iteration(P, nS, nA, gamma=0.9, tol=1e-3):
 	"""
@@ -134,70 +158,112 @@ def value_iteration(P, nS, nA, gamma=0.9, tol=1e-3):
 	value_function: np.ndarray[nS]
 	policy: np.ndarray[nS]
 	"""
-	# nS = 16
-	# nA = 4
-	value_function = np.zeros(nS) # array filled with zeros size 16.
-	policy = np.zeros(nS, dtype=int) # array filled with the moevs
+	value = np.zeros(nS)
+	policy = np.zeros(nS, dtype=int)
+	timestep = 0
+	while True:
+		timestep += 1
+		newValueFunction = np.copy(value)
+		for s in range(nS):
+			rewards = []
+			for a in range(nA):
+				prob, nextState, r, terminal = P[s][a][0]
+				rewards.append(r + gamma * prob * newValueFunction[nextState])
+			newValueFunction[s] = np.max(rewards)
+		value_change = np.sum(np.abs(value - newValueFunction))
+		value = newValueFunction
+		if value_change < tol:
+			break
+
+	# Get best policy
+	for s in range(nS):
+		rewards = []
+		for a in range(nA):
+			prob, nextState, r, terminal = P[s][a][0]
+			rewards.append(r + gamma * prob * newValueFunction[nextState])
+		policy[s] = np.argmax(rewards)
 	############################
-	# YOUR IMPLEMENTATION HERE #
-
-
-
-	############################
-	return value_function, policy
+	print("It took {} timesteps".format(timestep))
+	return value, policy
 
 def render_single(env, policy, max_steps=100):
-  """
-    This function does not need to be modified
-    Renders policy once on environment. Watch your agent play!
+	"""
+	This function does not need to be modified
+	Renders policy once on environment. Watch your agent play!
 
-    Parameters
-    ----------
-    env: gym.core.Environment
-      Environment to play on. Must have nS, nA, and P as
-      attributes.
-    Policy: np.array of shape [env.nS]
-      The action to take at a given state
-  """
+	Parameters
+	----------
+	env: gym.core.Environment
+	  Environment to play on. Must have nS, nA, and P as
+	  attributes.
+	Policy: np.array of shape [env.nS]
+	  The action to take at a given state
+	"""
 
-  episode_reward = 0
-  ob = env.reset()
-  for t in range(max_steps):
-    env.render()
-    time.sleep(0.25)
-    a = policy[ob]
-    ob, rew, done, _ = env.step(a)
-    episode_reward += rew
-    if done:
-      break
-  env.render();
-  if not done:
-    print("The agent didn't reach a terminal state in {} steps.".format(max_steps))
-  else:
-  	print("Episode reward: %f" % episode_reward)
+	episode_reward = 0
+	ob = env.reset()
+	for t in range(max_steps):
+		env.render()
+		time.sleep(0.25)
+		a = policy[ob]
+		ob, rew, done, _ = env.step(a)
+		episode_reward += rew
+		if done:
+			break
+		env.render()
+		if not done:
+			print("The agent didn't reach a terminal state in {} steps.".format(max_steps))
+		else:
+			print("Episode reward: %f" % episode_reward)
 
+
+def runStochastic():
+	# comment/uncomment these lines to switch between deterministic/stochastic environments
+	# env = gym.make("Deterministic-4x4-FrozenLake-v0")
+	env = gym.make("Stochastic-4x4-FrozenLake-v0")
+	# print(env.P)
+	print("\n" + "-" * 25 + "\nBeginning Stochastic Policy Iteration\n" + "-" * 25)
+	# value_function = np.zeros(env.nS)
+	# policy = np.zeros(env.nS, dtype=int)
+	# R = np.zeros((env.nS, env.nA), dtype=float)
+	V_pi, p_pi = policy_iteration(env.P, env.nS, env.nA, gamma=0.9, tol=1e-3)
+	# render_single(env, p_pi, 100)
+	print("\n Optimal State_Values: \n", V_pi.reshape(4, 4))
+	print("\n Optimal Policy: \n", p_pi.reshape(4, 4))
+
+	print("\n" + "-" * 25 + "\nBeginning Value Iteration\n" + "-" * 25)
+
+	V_vi, p_vi = value_iteration(env.P, env.nS, env.nA, gamma=0.9, tol=1e-3)
+	# render_single(env, p_vi, 100)
+	print("\n Optimal State_Values: \n", V_vi.reshape(4, 4))
+	print("\n Optimal Policy: \n", p_vi.reshape(4, 4))
+
+def runDeterministic():
+	# comment/uncomment these lines to switch between deterministic/stochastic environments
+	# env = gym.make("Deterministic-4x4-FrozenLake-v0")
+	env = gym.make("Deterministic-4x4-FrozenLake-v0")
+	# print(env.P)
+	print("\n" + "-" * 25 + "\nBeginning Deterministic Policy Iteration\n" + "-" * 25)
+	# value_function = np.zeros(env.nS)
+	# policy = np.zeros(env.nS, dtype=int)
+	# R = np.zeros((env.nS, env.nA), dtype=float)
+	V_pi, p_pi = policy_iteration(env.P, env.nS, env.nA, gamma=0.9, tol=1e-3)
+	# render_single(env, p_pi, 100)
+	print("\n Optimal State_Values: \n", V_pi.reshape(4, 4))
+	print("\n Optimal Policy: \n", p_pi.reshape(4, 4))
+
+	print("\n" + "-" * 25 + "\nBeginning Value Iteration\n" + "-" * 25)
+
+	V_vi, p_vi = value_iteration(env.P, env.nS, env.nA, gamma=0.9, tol=1e-3)
+	# render_single(env, p_vi, 100)
+	print("\n Optimal State_Values: \n", V_vi.reshape(4, 4))
+	print("\n Optimal Policy: \n", p_vi.reshape(4, 4))
 
 # Edit below to run policy and value iteration on different environments and
 # visualize the resulting policies in action!
 # You may change the parameters in the functions below
 if __name__ == "__main__":
-
-	# comment/uncomment these lines to switch between deterministic/stochastic environments
-	#env = gym.make("Deterministic-4x4-FrozenLake-v0")
-	env = gym.make("Stochastic-4x4-FrozenLake-v0")
-	print(env.P)
-	print("\n" + "-"*25 + "\nBeginning Policy Iteration\n" + "-"*25)
-
-	V_pi, p_pi = policy_iteration(env.P, env.nS, env.nA, gamma=0.9, tol=1e-3)
-	# render_single(env, p_pi, 100)
-	print("\n Optimal State_Values: \n",V_pi.reshape(4,4))
-	print("\n Optimal Policy: \n",p_pi.reshape(4,4))
-
-	print("\n" + "-"*25 + "\nBeginning Value Iteration\n" + "-"*25)
-
-	V_vi, p_vi = value_iteration(env.P, env.nS, env.nA, gamma=0.9, tol=1e-3)
-	# render_single(env, p_vi, 100)
-	print("\n Optimal State_Values: \n", V_vi.reshape(4,4))
-	print("\n Optimal Policy: \n", p_vi.reshape(4,4))
+	runStochastic()
+	runDeterministic()
 
 

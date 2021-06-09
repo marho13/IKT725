@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c590d5a4-d190-4b50-8ebf-912672962c80" name="Default Changelist" comment="" />
+    <list default="true" id="c590d5a4-d190-4b50-8ebf-912672962c80" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Homework 1/exercise3b(c, d).py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework 1/exercise2b.py" beforeDir="false" afterPath="$PROJECT_DIR$/Homework 1/exercise2b.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework 1/exercise3a.py" beforeDir="false" afterPath="$PROJECT_DIR$/Homework 1/exercise3a.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework 1/vi_and_pi.py" beforeDir="false" afterPath="$PROJECT_DIR$/Homework 1/vi_and_pi.py" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,28 +47,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.exercise3a">
-    <configuration name="exercise2" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="IKT725" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Homework 1" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\Martin\PycharmProjects\IKT725\Homework 1\exercise2a.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.vi_and_pi">
     <configuration name="exercise2a" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="IKT725" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -125,12 +111,55 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="exercise3b(c, d)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="IKT725" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Homework 1" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Homework 1/exercise3b(c, d).py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="vi_and_pi" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="IKT725" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Homework 1" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Homework 1/vi_and_pi.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.vi_and_pi" />
+        <item itemvalue="Python.exercise3b(c, d)" />
         <item itemvalue="Python.exercise3a" />
         <item itemvalue="Python.exercise2a" />
         <item itemvalue="Python.exercise2b" />
-        <item itemvalue="Python.exercise2" />
       </list>
     </recent_temporary>
   </component>
@@ -168,6 +197,16 @@
           <url>file://$PROJECT_DIR$/Homework 1/exercise2b.py</url>
           <line>91</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Homework 1/vi_and_pi.py</url>
+          <line>122</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Homework 1/vi_and_pi.py</url>
+          <line>58</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

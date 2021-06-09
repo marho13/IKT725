@@ -92,15 +92,15 @@ def loopingSumandR(sum, R, numInR):
 def search(numTries ,depth, R, listNodes):
     for x in range(len(R)):
         if x == 5:
-            R[x][0] = 1
-            R[x][1] = 1
-            R[x][2] = 1
-            R[x][3] = 1
+            R[x][0] = 5
+            R[x][1] = 5
+            R[x][2] = 5
+            R[x][3] = 5
         if x == 11:
-            R[x][0] = -1
-            R[x][1] = -1
-            R[x][2] = -1
-            R[x][3] = -1
+            R[x][0] = -5
+            R[x][1] = -5
+            R[x][2] = -5
+            R[x][3] = -5
 
         else:
             sum = []
