@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c590d5a4-d190-4b50-8ebf-912672962c80" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Homework 1/exercise3b(c, d).py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework 2/Exercise3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework 2/Exercise4.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework 2/SumTree.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework 2/prioritisedExperienceReplay.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/IKT725.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/IKT725.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework 1/exercise2b.py" beforeDir="false" afterPath="$PROJECT_DIR$/Homework 1/exercise2b.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework 1/exercise3a.py" beforeDir="false" afterPath="$PROJECT_DIR$/Homework 1/exercise3a.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework 1/vi_and_pi.py" beforeDir="false" afterPath="$PROJECT_DIR$/Homework 1/vi_and_pi.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,7 +35,8 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Socket/DQN.py" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -47,8 +50,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.vi_and_pi">
-    <configuration name="exercise2a" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.Exercise4">
+    <configuration name="DQNUnity" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="IKT725" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -56,11 +59,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Homework 1" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Desktop/Socket" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Homework 1/exercise2a.py" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/Desktop/Socket/DQNUnity.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -69,7 +72,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="exercise2b" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="Exercise3" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="IKT725" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -77,11 +80,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Homework 1" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Homework 2" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Homework 1/exercise2b.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Homework 2/Exercise3.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -90,7 +93,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="exercise3a" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="Exercise4" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="IKT725" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -98,11 +101,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Homework 1" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Homework 2" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Homework 1/exercise3a.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Homework 2/Exercise4.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -155,11 +158,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Exercise4" />
+        <item itemvalue="Python.DQNUnity" />
+        <item itemvalue="Python.Exercise3" />
         <item itemvalue="Python.vi_and_pi" />
         <item itemvalue="Python.exercise3b(c, d)" />
-        <item itemvalue="Python.exercise3a" />
-        <item itemvalue="Python.exercise2a" />
-        <item itemvalue="Python.exercise2b" />
       </list>
     </recent_temporary>
   </component>
@@ -208,7 +211,22 @@
           <line>58</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Homework 2/Exercise3.py</url>
+          <line>7</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$USER_HOME$/Desktop/Socket/DQNUnity.py</url>
+          <line>183</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="env.observation_space.dtype" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
