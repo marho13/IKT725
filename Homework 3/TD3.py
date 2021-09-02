@@ -1,9 +1,20 @@
-import torch
-import numpy as np
 import os
-
+import tempfile
+import torch
+import time
+import numpy as np
+import random
+import gc
+from itertools import count
+import glob
 # TD3 agent class
 # There is a task here!
+
+LEAVE_PRINT_EVERY_N_SECS = 300
+ERASE_LINE = '\x1b[2K'
+EPS = 1e-6
+BEEP = lambda: os.system("printf '\a'")
+RESULTS_DIR = os.path.join('..', 'results')
 
 class TD3():
     def __init__(self,

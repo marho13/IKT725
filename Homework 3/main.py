@@ -2,17 +2,23 @@
 # ---DO NOT TOUCH---
 import warnings ; warnings.filterwarnings('ignore')
 import os
+import sys
 
-import TD3.TD3 as TD3
-import DDPG.DDPG as DDPG
-import FCQV.FCQV as FCQV
-import FCDP.FCDP as FCDP
-import FCTQV.FCTQV as FCTQV
+file_dir = os.path.dirname(__file__)
+sys.path.append(file_dir)
 
-import NormalNoiseStrategy.NormalNoiseStrategy as NormalNoiseStrategy
-import GreedyStrategy.GreedyStrategy as GreedyStrategy
-import ReplayBuffer.ReplayBuffer as ReplayBuffer
-import NormalNoiseDecayStrategy.NormalNoiseDecayStrategy as NormalNoiseDecayStrategy
+print(os.listdir())
+
+from TD3 import TD3
+from DDPG import DDPG
+from FCQV import FCQV
+from FCDP import FCDP
+from FCTQV import FCTQV
+
+from NormalStrategy import NormalNoiseStrategy
+from GreedyStrategy import GreedyStrategy
+from Memory import ReplayBuffer
+from NormalNoiseStrategy import NormalNoiseDecayStrategy
 
 os.environ['CUDA_DEVICE_ORDER']='PCI_BUS_ID'
 os.environ['OMP_NUM_THREADS'] = '1'
