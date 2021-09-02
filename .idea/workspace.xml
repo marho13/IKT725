@@ -2,13 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c590d5a4-d190-4b50-8ebf-912672962c80" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Homework 3/DDPG.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework 3/FCDP.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework 3/FCQV.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework 3/FCTQV.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework 3/GreedyStrategy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework 3/Memory.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework 3/NormalNoiseStrategy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework 3/NormalStrategy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework 3/TD3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework 3/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/IKT725.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/IKT725.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework 1.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework 2/Exercise3.py" beforeDir="false" afterPath="$PROJECT_DIR$/Homework 2/Exercise3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework 2/Exercise4.py" beforeDir="false" afterPath="$PROJECT_DIR$/Homework 2/Exercise4.py" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,7 +53,19 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.Exercise4">
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.main">
     <configuration name="DQNUnity" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="IKT725" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -109,7 +129,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="exercise3b(c, d)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="IKT725" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -117,11 +137,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Homework 1" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Homework 3" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Homework 1/exercise3b(c, d).py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Homework 3/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -153,15 +173,15 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main" />
         <item itemvalue="Python.Exercise4" />
         <item itemvalue="Python.Exercise3" />
         <item itemvalue="Python.DQNUnity" />
         <item itemvalue="Python.vi_and_pi" />
-        <item itemvalue="Python.exercise3b(c, d)" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -180,12 +200,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
