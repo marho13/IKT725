@@ -48,7 +48,6 @@ class QlearningGymenv:
         self.hole = [5, 7, 11, 12]
         self.rewards, self.qtable = self.getRewQ()
 
-
     def getRewQ(self):
         rewards = []
         qtable = np.zeros((state_size, action_size))
@@ -106,7 +105,7 @@ class QlearningGymenv:
             action = np.argmax(probabilities)
             for x in range(self.action_size):
                 if action != x:
-                    self.qtable[state][x] += 0.0001
+                    self.qtable[state][x] += 0.000001
             # print(probabilities)
         else:
             exp_exp_tradeoff = np.random.uniform(0, 1)
@@ -144,29 +143,29 @@ class QlearningGymenv:
 
 qstaticboltz = QlearningGymenv(total_episodes, learning_rate, max_steps, gamma, epsilon,
                  max_epsilon, min_epsilon, decay_rate, env, action_size, state_size,
-                          "Static", True, 0.8)
+                          "Static", True, 0.1)
 qstatic = QlearningGymenv(total_episodes, learning_rate, max_steps, gamma, epsilon,
                  max_epsilon, min_epsilon, decay_rate, env, action_size, state_size,
-                          "Static", False, 0.8)
+                          "Static", False, 0.1)
 qVarying = QlearningGymenv(total_episodes, lrs, max_steps, gamma, epsilon,
                  max_epsilon, min_epsilon, decay_rate, env, action_size, state_size,
-                           "Varying", False, 0.8)
+                           "Varying", False, 1000)
 qVaryingboltz = QlearningGymenv(total_episodes, lrs, max_steps, gamma, epsilon,
                  max_epsilon, min_epsilon, decay_rate, env, action_size, state_size,
-                           "Varying", True, 0.8)
+                           "Varying", True, 1000)
 
 qstatic.performEpisodes()
 qstatic.printy()
-qstatic.plot()
+# qstatic.plot()
 
 qVarying.performEpisodes()
 qVarying.printy()
-qVarying.plot()
+# qVarying.plot()
 
 qstaticboltz.performEpisodes()
 qstaticboltz.printy()
-qstaticboltz.plot()
+# qstaticboltz.plot()
 
 qVaryingboltz.performEpisodes()
 qVaryingboltz.printy()
-qVaryingboltz.plot()
+# qVaryingboltz.plot()
